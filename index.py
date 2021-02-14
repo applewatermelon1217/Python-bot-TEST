@@ -1,5 +1,4 @@
-import discord, datetime #모듈 불러오기
-token = "ODEwMzUwMDg2ODYwMzA4NTAw.YCiXVA.uMXAwDj04vGAW6nrBwDSoni5sS0" #봇 토큰을 설정하기
+import discord, datetime, os #모듈 불러오기
 client = discord.Client()
 
 @client.event
@@ -52,5 +51,6 @@ async def on_message(message):
 
     if message.content == "!딜레이테스트":
         await message.channel.send("딜레이 {0}초".format(bot.latency))
-
-client.run(token)
+        
+access_token = os.environ['BOT_TOKEN"]
+client.run(access_token)
