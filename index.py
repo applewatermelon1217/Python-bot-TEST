@@ -32,13 +32,6 @@ async def on_message(message):
         embed.set_footer(text=message.author, icon_url=message.author.avatar_url)
         await message.channel.send(embed=embed)
 
-    if message.content == '!내정보':
-        user = message.author
-        date = datetime.datetime.utcfromtimestamp(((int(user.id) >> 22) + 1420070400000) / 1000)
-        await message.channel.send(f"{message.author.mention}의 가입일 : {date.year}/{date.month}/{date.day}")
-        await message.channel.send(f"{message.author.mention}의 이름 / 아이디 / 닉네임 : {user.name} / {user.id} / {user.display_name}")
-        await message.channel.send(message.author.avatar_url)
-
     if message.content.startswith(f"!채널메세지"):
         ch = client.get_channel(int(message.content[7:25]))
         await ch.send(message.content[26:])
